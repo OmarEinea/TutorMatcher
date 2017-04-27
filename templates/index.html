@@ -3,9 +3,26 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- Angular Material style sheet -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/angular-material/1.1.4/angular-material.min.css">
+        <!-- Satisfy Google Font -->
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Satisfy">
+        <!-- Our Style Sheets -->
+        <link rel="stylesheet" href="styles.css">
     </head>
     <body ng-app="UOSTutors" ng-cloak>
-        
+        <md-toolbar ng-controller="toolbar" class="md-hue-2">
+            <div class="md-toolbar-tools">
+                <span id="logo">UOS Tutors</span>
+                <a href="#" style="margin-right: 24px">Tutors</a>
+                <md-autocomplete md-items="subject in subjects" md-item-text="subject" placeholder="Search a Subject">
+                    <md-item-template>{{subject}}</md-item-template>
+                </md-autocomplete>
+                <span flex></span>
+                <md-button class="md-button">Login</md-button>
+                <md-button class="md-button">Sign Up</md-button>
+            </div>
+        </md-toolbar>
+        <div id="banner"></div>
+
         <!-- Angular Material requires Angular.js Libraries -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.4/angular.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.4/angular-animate.min.js"></script>

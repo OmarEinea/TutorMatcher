@@ -1,0 +1,12 @@
+#logo {
+    margin-right: 32px;
+    font-family: 'Satisfy';
+    font-size: 24px;
+}
+
+#banner {
+    height: 640px;
+    width: 100%;
+    background-position: bottom;
+    background-image: url(https://images.pexels.com/photos/232/apple-iphone-books-desk.jpg?dl&fit=crop&w=1920&h=1288)
+}
