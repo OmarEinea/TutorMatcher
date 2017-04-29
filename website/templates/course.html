@@ -1,0 +1,93 @@
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- Angular Material style sheet -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/angular-material/1.1.4/angular-material.min.css">
+        <!-- Satisfy Google Font -->
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Satisfy">
+        <!-- Our Style Sheets -->
+        <link rel="stylesheet" href="../static/styles.css">
+    </head>
+    <body ng-app="UOSTutors" ng-cloak>
+        <md-toolbar ng-controller="toolbar" class="md-hue-2" layout="row">
+            <div class="md-toolbar-tools" flex-offset="20" flex="60">
+                <span id="logo">UOS Tutors</span>
+                <a href="#" style="margin-right: 24px">Tutors</a>
+                <md-autocomplete md-items="subject in subjects" md-item-text="subject" placeholder="Search a Subject">
+                    <md-item-template>{{subject}}</md-item-template>
+                </md-autocomplete>
+                <span flex></span>
+                <md-button class="md-button">Login</md-button>
+                <md-button class="md-button">Sign Up</md-button>
+            </div>
+        </md-toolbar>
+		<md-card flex-offset="20" flex="60">
+			<img src="https://images.pexels.com/photos/5775/calculator-scientific.jpg?dl&fit=crop&w=1280&h=853" class="md-card-image" style="height: 480px">
+			<md-card-title>
+				<md-card-title-text>
+					<span class="md-display-1">Calculus I</span>
+				</md-card-title-text>
+			</md-card-title>
+			<md-card-content>
+				<p><b>About the Course:</b>
+					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin hendrerit lacus ac mi luctus efficitur. Nulla lacinia sapien nec finibus tincidunt. Morbi volutpat diam tellus, ac pulvinar risus molestie vitae. Aenean tristique lacus sit amet diam fermentum ultricies. Nam in tortor commodo, ultrices felis ut, mollis tellus. Donec tellus ligula, consectetur id mi sit amet, sollicitudin egestas leo. Quisque eget massa odio. Sed lobortis eros in nibh pharetra consequat. Morbi id mauris feugiat, blandit velit a, dignissim lectus. Quisque a massa venenatis, venenatis risus et, fringilla massa.
+
+					Donec a est nec tortor blandit commodo id quis mi. Curabitur malesuada id arcu sed tincidunt. Aliquam erat volutpat. Donec et purus tincidunt, malesuada tortor non, sodales libero. Morbi auctor non velit viverra lobortis. Pellentesque viverra at lectus quis ultrices. Ut molestie gravida nisi et pretium. Nunc semper convallis mattis. Nulla et leo vel ex egestas pellentesque eget eu lectus. Aliquam consequat iaculis nisl vitae feugiat.
+				</p>
+			</md-card-content>
+		</md-card>
+		<md-card layout="column" flex-offset="20" flex="60">
+			<md-card-title>
+				<md-card-title-text>
+					<span class="md-display-1">Tutors</span>
+				</md-card-title-text>
+			</md-card-title>
+			<div layout="row" layout-margin md-colors="{color: 'grey-800'}" layout-align="start center">
+				<img src="https://s3-us-west-1.amazonaws.com/udacity-content/instructor/chris-lei@2x-a286e7c.jpg" style="height: 128px">
+				<div layout="column" flex="30">
+					<span class="md-title"><md-icon md-font-icon="fa fa-user fa-fw"></md-icon>Omar Einea</span>
+					<span class="md-subhead"><md-icon md-font-icon="fa fa-address-card fa-fw"></md-icon>Web Developer</span>
+					<span class="md-subhead"><md-icon md-font-icon="fa fa-calendar fa-fw"></md-icon>654 Sessions</span>
+					<span class="md-subhead"><md-icon md-font-icon="fa fa-book fa-fw"></md-icon>26 Courses</span>
+				</div>
+				<div layout="column" flex>
+					<span class="md-subhead">
+						<md-icon md-font-icon="fa fa-star fa-fw"></md-icon>
+						<b style="margin-right: 12px">Students' Ratings:</b>
+						<md-icon md-font-icon="fa fa-star"></md-icon>
+						<md-icon md-font-icon="fa fa-star"></md-icon>
+						<md-icon md-font-icon="fa fa-star"></md-icon>
+						<md-icon md-font-icon="fa fa-star-half-o"></md-icon>
+						<md-icon md-font-icon="fa fa-star-o"></md-icon>
+					</span>
+					<span class="md-subhead">
+						<md-icon md-font-icon="fa fa-language fa-fw"></md-icon>
+						<b style="margin-right: 12px">Languages:</b> Arabic, English 
+					</span>
+				</div>
+				<md-button class="md-raised md-primary" layout-padding>Book A Session</md-button>
+			</div>
+		</md-card>
+		<footer md-colors="{background: 'primary-400'}">
+			<div flex-offset="20" flex="60" layout="row" layout-align="space-between center" layout-padding>
+				<p>Privacy Policy<br>
+				Satellite imagery: © 2014 Astrium, DigitalGlobe<br>
+					Some features and devices may not be available in all areas.</p>
+				<div>icons</div>
+			</div>
+		</footer>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.4/angular.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.4/angular-animate.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.4/angular-aria.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.4/angular-messages.min.js"></script>
+
+        <!-- Angular Material Library -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-material/1.1.4/angular-material.min.js"></script>
+        <!-- Font Awesome Icon Pack -->
+        <script src="https://use.fontawesome.com/33a5a1ecd9.js"></script>
+
+        <!-- Our Angular App -->
+        <script src="../static/app.js"></script>
+    </body>
+</html>
