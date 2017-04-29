@@ -6,5 +6,6 @@ from django.http import HttpResponse
 def index(request):
         return HttpResponse("Index!")
 
-def checker(request):
-        return HttpResponse("The checker function")
+def checker(request, filename):
+        #return HttpResponse("The checker function"+" "+filename)
+        return render(request, filename+'.html', {})
