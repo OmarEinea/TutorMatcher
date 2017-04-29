@@ -4,7 +4,7 @@ from django.http import HttpResponse
 
 # Create your views here.
 def index(request):
-        return HttpResponse("Index!")
+        return render(request, 'index.html')
 
 def checker(request, filename):
         #return HttpResponse("The checker function"+" "+filename)
