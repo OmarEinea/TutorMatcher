@@ -4,4 +4,5 @@ from . import views
 
 urlpatterns = [
     url(r'^$', views.index, name='index'),
+    url(r'html/[a-zA-Z]+$', views.checker, name='checker'),
 ]
