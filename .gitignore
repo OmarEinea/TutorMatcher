@@ -1,2 +1,5 @@
 # Ignore Python 3 Byte-compiled Files
 __pycache__/
+
+# Ignore PyCharm Project Folder
+.idea
