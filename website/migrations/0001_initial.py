@@ -19,7 +19,7 @@ class Migration(migrations.Migration):
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('name', models.CharField(max_length=25)),
                 ('age', models.CharField(max_length=25)),
-                ('email', models.CharField(max_length=25, )),
+                ('email', models.CharField(max_length=25)),
             ],
         ),
     ]
