@@ -1,11 +1,11 @@
 from django.shortcuts import render
 
-from django.http import HttpResponse
 
 # Create your views here.
-def index(request):
-        return render(request, 'index.html')
+def layout(request):
+    return render(request, 'layout.html')
+
 
 def checker(request, filename):
-        #return HttpResponse("The checker function"+" "+filename)
-        return render(request, filename+'.html', {})
+    # return HttpResponse("The checker function"+" "+filename)
+    return render(request, (filename if filename else 'index') + '.html')
