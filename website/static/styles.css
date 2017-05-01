@@ -4,6 +4,10 @@
     font-size: 24px;
 }
 
+a[ng-click] {
+    cursor: pointer;
+}
+
 #banner {
     height: 640px;
     width: 100%;
