@@ -8,4 +8,4 @@ def layout(request):
 
 def checker(request, filename):
     # return HttpResponse("The checker function"+" "+filename)
-    return render(request, (filename if filename else 'index') + '.html')
+    return render(request, (filename.lower() if filename else 'index') + '.html')

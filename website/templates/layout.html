@@ -3,6 +3,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- Angular Material style sheet -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/angular-material/1.1.4/angular-material.min.css">
+        <!-- Font Awesome Icon Pack -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <!-- Satisfy Google Font -->
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Satisfy">
         <!-- Our Style Sheets -->
@@ -10,10 +12,11 @@
     </head>
     <body ng-app="UOSTutors" ng-cloak>
         <md-toolbar ng-controller="toolbar" class="md-hue-2" layout="row">
-            <div class="md-toolbar-tools" flex-offset="20" flex="60">
+            <div class="md-toolbar-tools" flex-offset="15" flex="70">
                 <span id="logo">UOS Tutors</span>
-                <a href="#" style="margin-right: 24px">Tutors</a>
-                <md-autocomplete md-items="subject in subjects" md-item-text="subject" placeholder="Search a Subject">
+                <a ng-click="redirect('Courses')" style="margin-right: 16px">Courses</a>
+                <a ng-click="redirect('Tutors')" style="margin-right: 24px">Tutors</a>
+                <md-autocomplete md-items="subject in subjects" md-item-text="subject" placeholder="Search a Subject" flex>
                     <md-item-template>{$ subject $}</md-item-template>
                 </md-autocomplete>
                 <span flex></span>
@@ -21,9 +24,9 @@
                 <md-button class="md-button">Sign Up</md-button>
             </div>
         </md-toolbar>
-        <div ng-controller="pageLoad" ng-include="url"></div>
+        <div ng-include="url"></div>
 		<footer md-colors="{background: 'primary-400'}">
-			<div flex-offset="20" flex="60" layout="row" layout-align="space-between center" layout-padding>
+			<div flex-offset="15" flex="70" layout="row" layout-align="space-between center" layout-padding>
 				<p>Privacy Policy<br>
 				Satellite imagery: © 2014 Astrium, DigitalGlobe<br>
 					Some features and devices may not be available in all areas.</p>
@@ -36,12 +39,8 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.4/angular-animate.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.4/angular-aria.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.4/angular-messages.min.js"></script>
-
         <!-- Angular Material Library -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-material/1.1.4/angular-material.min.js"></script>
-        <!-- Font Awesome Icon Pack -->
-        <script src="https://use.fontawesome.com/33a5a1ecd9.js"></script>
-
         <!-- Our Angular App -->
         <script src="/static/app.js"></script>
     </body>
