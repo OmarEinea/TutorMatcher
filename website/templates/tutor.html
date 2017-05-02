@@ -1,0 +1,84 @@
+<md-card layout="column" flex-offset="20" flex="60" style="margin-top: 200px">
+    <div layout="row" layout-align="center start">
+        <md-card style="border: solid white 6px; border-radius: 100%; overflow: hidden; margin-top: -164px">
+            <img src="https://s3-us-west-1.amazonaws.com/udacity-content/instructor/chris-lei@2x-a286e7c.jpg">
+        </md-card>
+    </div>
+    <div layout="row" layout-align="center" layout-margin>
+        <md-card-title-text>
+            <span class="md-display-1">Chris Lei</span>
+        </md-card-title-text>
+    </div>
+    <div layout="row" layout-margin md-colors="{color: 'grey-800'}" layout-align="center center">
+        <div layout="column" layout-align="center center" flex>
+        <span class="md-subhead"><md-icon md-font-icon="fa fa-address-card fa-fw"></md-icon>Product Manager</span>
+        <span class="md-subhead"><md-icon md-font-icon="fa fa-calendar fa-fw"></md-icon>654 Sessions</span>
+            <span class="md-subhead">
+                <md-icon md-font-icon="fa fa-star fa-fw"></md-icon>
+                <b style="margin-right: 12px">Students' Ratings:</b>
+                <md-icon md-font-icon="fa fa-star"></md-icon>
+                <md-icon md-font-icon="fa fa-star"></md-icon>
+                <md-icon md-font-icon="fa fa-star"></md-icon>
+                <md-icon md-font-icon="fa fa-star-half-o"></md-icon>
+                <md-icon md-font-icon="fa fa-star-o"></md-icon>
+            </span>
+            <span class="md-subhead">
+                <md-icon md-font-icon="fa fa-language fa-fw"></md-icon>
+                <b style="margin-right: 12px">Languages:</b> Chinese, English
+            </span>
+        </div>
+    </div>
+</md-card>
+<md-card flex-offset="20" flex="60" layout="column" ng-controller="calendar">
+    <md-card-title>
+        <md-card-title-text>
+            <span class="md-display-1">Free Time Slots</span>
+        </md-card-title-text>
+        <md-button ng-click="setDirection('vertical')">Agenda</md-button>
+        <md-button ng-click="setDirection('horizontal')">Calendar</md-button>
+    </md-card-title>
+    <div layout="column" layout-align="start center">
+        <calendar-md layout-fill style="min-height: 0"
+            calendar-direction="direction"
+            on-prev-month="prevMonth"
+            on-next-month="nextMonth"
+            on-day-click="dayClick"
+            title-format="'MMMM y'"
+            ng-model='selectedDate'
+            week-starts-on="firstDayOfWeek"
+            tooltips="tooltips"
+            day-format="dayFormat"
+            day-label-format="'EEE'"
+            day-label-tooltip-format="'EEEE'"
+            day-tooltip-format="'fullDate'"
+            day-content="setDayContent"
+            disable-future-selection="false"></calendar-md>
+    </div>
+</md-card>
+<p flex-offset="20" flex="60" class="md-display-1" style="padding-left: 16px">Teaches:</p>
+<div flex-offset="20" flex="60" layout="row">
+    <md-card flex="33">
+        <img src="https://images.pexels.com/photos/5775/calculator-scientific.jpg?dl&fit=crop&w=1280&h=853">
+        <md-card-title>
+            <md-card-title-text layout="row" layout-align="center">
+                <span class="md-headline">Calculus I</span>
+            </md-card-title-text>
+        </md-card-title>
+    </md-card>
+        <md-card flex="33">
+        <img src="https://images.pexels.com/photos/90807/pexels-photo-90807.jpeg?dl&fit=crop&w=1280&h=853">
+        <md-card-title>
+            <md-card-title-text layout="row" layout-align="center">
+                <span class="md-headline">Programming</span>
+            </md-card-title-text>
+        </md-card-title>
+    </md-card>
+    <md-card flex="33">
+        <img src="https://images.pexels.com/photos/25970/pexels-photo.jpg?dl&fit=crop&w=1280&h=847">
+        <md-card-title>
+            <md-card-title-text layout="row" layout-align="center">
+                <span class="md-headline">Business</span>
+            </md-card-title-text>
+        </md-card-title>
+    </md-card>
+</div>
