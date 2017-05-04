@@ -15,6 +15,6 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='user',
             name='phone',
-            field=models.IntegerField(default='', max_length=10),
+            field=models.CharField(default='', max_length=10),
         ),
     ]
