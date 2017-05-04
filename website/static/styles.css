@@ -19,3 +19,12 @@ a[ng-click] {
 	margin-right: 8px;
 	margin-bottom: 8px
 }
+
+.absolute {
+    position: absolute;
+}
+
+.fixed {
+    position: fixed;
+    margin-top: -56px;
+}
