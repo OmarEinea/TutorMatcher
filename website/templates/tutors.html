@@ -1,0 +1,30 @@
+<div ng-controller="courses">
+    <div layout-padding></div>
+    <md-card flex-offset="30" flex="40" layout="row" layout-padding layout-align="start center" ng-repeat="num in shownCourses" ng-click="redirect('tutor')">
+        <img src="https://s3-us-west-1.amazonaws.com/udacity-content/instructor/chris-lei@2x-a286e7c.jpg" flex="20">
+        <div layout="column" flex>
+            <span class="md-title"><md-icon md-font-icon="fa fa-user fa-fw"></md-icon>Chris Lei {{ num }}</span>
+            <span class="md-subhead"><md-icon md-font-icon="fa fa-address-card fa-fw"></md-icon>Product Manager</span>
+            <span class="md-subhead"><md-icon md-font-icon="fa fa-calendar fa-fw"></md-icon>654 Sessions</span>
+            <span class="md-subhead"><md-icon md-font-icon="fa fa-book fa-fw"></md-icon>26 Courses</span>
+        </div>
+        <div layout="column" flex="nogrow">
+            <span class="md-subhead">
+                <md-icon md-font-icon="fa fa-star fa-fw"></md-icon>
+                <b style="margin-right: 12px">Students' Ratings:</b>
+                <md-icon md-font-icon="fa fa-star"></md-icon>
+                <md-icon md-font-icon="fa fa-star"></md-icon>
+                <md-icon md-font-icon="fa fa-star"></md-icon>
+                <md-icon md-font-icon="fa fa-star-half-o"></md-icon>
+                <md-icon md-font-icon="fa fa-star-o"></md-icon>
+            </span>
+            <span class="md-subhead">
+                <md-icon md-font-icon="fa fa-language fa-fw"></md-icon>
+                <b style="margin-right: 12px">Languages:</b> Chinese, English
+            </span>
+        </div>
+    </md-card>
+    <div flex layout-padding>
+        <md-collection-pagination layout-margin collection="allCourses" paginated-collection="shownCourses" per-page="6"></md-collection-pagination>
+    </div>
+</div>

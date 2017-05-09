@@ -15,8 +15,8 @@
             </md-list-item>
         </md-list>
     </md-card>
-    <md-card flex-offset="40" flex="30" layout="row" layout-padding layout-align="start start" ng-repeat="num in shownCourses">
-            <img src="https://s3-us-west-1.amazonaws.com/udacity-content/instructor/chris-lei@2x-a286e7c.jpg" flex="30">
+    <md-card flex-offset="40" flex="30" layout="row" layout-padding layout-align="start start" ng-repeat="num in shownCourses" ng-click="redirect('course')">
+            <img src="https://images.pexels.com/photos/5775/calculator-scientific.jpg?dl&fit=crop&w=1280&h=853" flex="35">
             <md-card-title-text layout="column" flex>
                 <span style="margin: 16px 0" class="md-headline" md-colors="::{color: 'grey-800'}">
                     <md-icon md-font-icon="fa fa-book fa-fw" md-colors="::{color: 'grey-800'}"></md-icon>Calculus I ({{ num }})
@@ -27,6 +27,6 @@
             </md-card-title-text>
     </md-card>
     <div flex-offset="40" flex="30" layout-padding>
-        <md-collection-pagination layout-margin collection="allCourses" paginated-collection="shownCourses"></md-collection-pagination>
+        <md-collection-pagination layout-margin collection="allCourses" paginated-collection="shownCourses" per-page="7"></md-collection-pagination>
     </div>
 </div>
