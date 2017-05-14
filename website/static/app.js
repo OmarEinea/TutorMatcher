@@ -1,15 +1,30 @@
-angular.module('UOSTutors', ['ngMaterial', 'materialCalendar', 'mdCollectionPagination'])
+angular.module('UOSTutors', ['ngMaterial', 'ngRoute', 'materialCalendar', 'mdCollectionPagination'])
 
-.config(function($mdIconProvider, $locationProvider){
-    $locationProvider.html5Mode({ enabled: true, requireBase: false, rewriteLinks: false });
+.config(function($mdIconProvider, $locationProvider, $routeProvider){
     $mdIconProvider.icon("md-tabs-arrow", "/static/tabs-arrow-icon.svg");
+    $locationProvider.html5Mode(true);
+    $routeProvider.when("/", {
+        templateUrl: '/html/index'
+    }).when("/Courses", {
+        templateUrl: '/html/courses'
+    }).when("/Tutors", {
+        templateUrl: '/html/tutors'
+    }).when("/Tutor", {
+        templateUrl: '/html/tutor'
+    }).when("/Course", {
+        templateUrl: '/html/course'
+    });
 })
 
-.run(function($rootScope, $window) {
-    $rootScope.url = '/html/' + $window.location.pathname.split('/')[1];
-    $rootScope.redirect = function(url) {
-        $window.history.pushState(null, null, '/' + url);
-        $rootScope.url = '/html/' + url;
+.directive('redirect', function($location) {
+    return {
+        link: function(scope, element, attrs) {
+            element.on('click', function() {
+                scope.$apply(function() {
+                    $location.path(attrs.redirect);
+                });
+            });
+        }
     }
 })
 
@@ -22,28 +37,13 @@ angular.module('UOSTutors', ['ngMaterial', 'materialCalendar', 'mdCollectionPagi
     $scope.dayFormat = "d";
 
     // To select a single date, make sure the ngModel is not an array.
-    $scope.selectedDate = null;
-
-    // If you want multi-date select, initialize it as an array.
-    //$scope.selectedDate = [];
-
-    $scope.firstDayOfWeek = 0; // First day of the week, 0 for Sunday, 1 for Monday, etc.
+    $scope.selectedDate = new Date();
     $scope.setDirection = function(direction) {
       $scope.direction = direction;
       $scope.dayFormat = direction === "vertical" ? "EEEE, MMMM d" : "d";
     };
 
-    $scope.dayClick = function(date) {
-      $scope.msg = "You clicked " + $filter("date")(date, "MMM d, y h:mm:ss a Z");
-    };
-
-    $scope.prevMonth = function(data) {
-      $scope.msg = "You clicked (prev) month " + data.month + ", " + data.year;
-    };
-
-    $scope.nextMonth = function(data) {
-      $scope.msg = "You clicked (next) month " + data.month + ", " + data.year;
-    };
+    $scope.firstDayOfWeek = 6; // First day of the week, 0 for Sunday, 1 for Monday, etc.
 
     $scope.tooltips = true;
     $scope.status = ["Busy Day", "Free Day", "Day Off"];

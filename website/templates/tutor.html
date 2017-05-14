@@ -40,11 +40,8 @@
     <div layout="column" layout-align="start center">
         <calendar-md layout-fill style="min-height: 0"
             calendar-direction="direction"
-            on-prev-month="prevMonth"
-            on-next-month="nextMonth"
-            on-day-click="dayClick"
             title-format="'MMMM y'"
-            ng-model='selectedDate'
+            ng-model="selectedDate"
             week-starts-on="firstDayOfWeek"
             tooltips="tooltips"
             day-format="dayFormat"
@@ -57,7 +54,7 @@
 </md-card>
 <p flex-offset="20" flex="60" class="md-display-1" style="padding-left: 16px">Teaches:</p>
 <div flex-offset="20" flex="60" layout="row">
-    <md-card flex="33" ng-click="redirect('course')">
+    <md-card flex="33" redirect="Course">
         <img src="https://images.pexels.com/photos/5775/calculator-scientific.jpg?dl&fit=crop&w=1280&h=853">
         <md-card-title>
             <md-card-title-text layout="row" layout-align="center">
@@ -65,7 +62,7 @@
             </md-card-title-text>
         </md-card-title>
     </md-card>
-    <md-card flex="33" ng-click="redirect('course')">
+    <md-card flex="33" redirect="Course">
         <img src="https://images.pexels.com/photos/90807/pexels-photo-90807.jpeg?dl&fit=crop&w=1280&h=853">
         <md-card-title>
             <md-card-title-text layout="row" layout-align="center">
@@ -73,7 +70,7 @@
             </md-card-title-text>
         </md-card-title>
     </md-card>
-    <md-card flex="33" ng-click="redirect('course')">
+    <md-card flex="33" redirect="Course">
         <img src="https://images.pexels.com/photos/25970/pexels-photo.jpg?dl&fit=crop&w=1280&h=847">
         <md-card-title>
             <md-card-title-text layout="row" layout-align="center">

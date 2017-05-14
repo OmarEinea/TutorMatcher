@@ -4,7 +4,7 @@
     font-size: 24px;
 }
 
-[ng-click] {
+[ng-click], [redirect] {
     cursor: pointer;
 }
 

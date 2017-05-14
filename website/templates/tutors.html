@@ -1,6 +1,6 @@
 <div ng-controller="courses">
     <div layout-padding></div>
-    <md-card flex-offset="30" flex="40" layout="row" layout-padding layout-align="start center" ng-repeat="num in shownCourses" ng-click="redirect('tutor')">
+    <md-card flex-offset="30" flex="40" layout="row" layout-padding layout-align="start center" ng-repeat="num in shownCourses" redirect="Tutor">
         <img src="https://s3-us-west-1.amazonaws.com/udacity-content/instructor/chris-lei@2x-a286e7c.jpg" flex="20">
         <div layout="column" flex>
             <span class="md-title"><md-icon md-font-icon="fa fa-user fa-fw"></md-icon>Chris Lei {{ num }}</span>

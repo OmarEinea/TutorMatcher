@@ -1,6 +1,7 @@
 <html>
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <base href="/">
         <!-- Angular Material style sheet -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/angular-material/1.1.4/angular-material.min.css">
         <!-- Font Awesome Icon Pack -->
@@ -13,9 +14,9 @@
     <body ng-app="UOSTutors" ng-cloak>
         <md-toolbar ng-controller="toolbar" class="md-hue-2" layout="row">
             <div class="md-toolbar-tools" flex-offset="20" flex="60">
-                <a ng-click="redirect('')" id="logo">UOS Tutors</a>
-                <a ng-click="redirect('Courses')" style="margin-right: 16px">Courses</a>
-                <a ng-click="redirect('Tutors')" style="margin-right: 24px">Tutors</a>
+                <a href="/" id="logo">UOS Tutors</a>
+                <a href="Courses" style="margin-right: 16px">Courses</a>
+                <a href="Tutors" style="margin-right: 24px">Tutors</a>
                 <md-autocomplete md-items="subject in subjects" md-item-text="subject" placeholder="Search a Subject" flex>
                     <md-item-template>{{ subject }}</md-item-template>
                 </md-autocomplete>
@@ -24,7 +25,7 @@
                 <md-button class="md-button">Sign Up</md-button>
             </div>
         </md-toolbar>
-        <div ng-include="url" style="min-height: 80%"></div>
+        <ng-view style="min-height: 80%"></ng-view>
 		<footer md-colors="{background: 'primary-400'}">
 			<div flex-offset="20" flex="60" layout="row" layout-align="space-between center" layout-padding>
 				<p>Privacy Policy<br>
@@ -36,6 +37,7 @@
 
         <!-- Angular Material requires Angular.js Libraries -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.4/angular.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.4/angular-route.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.4/angular-animate.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.4/angular-aria.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.4/angular-messages.min.js"></script>
