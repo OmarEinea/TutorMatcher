@@ -28,9 +28,27 @@ angular.module('UOSTutors', ['ngMaterial', 'ngRoute', 'materialCalendar', 'mdCol
     }
 })
 
-.controller('toolbar', function($scope) {
+.controller('toolbar', function($scope, $mdDialog) {
     $scope.subjects = ['Statistics', 'Accounting', 'Algebra', 'Finance', 'Chemistry',
                        'Calculus', 'Study Skills', 'Writing', 'Biology', 'Computer Science'];
+
+    $scope.cancel = $mdDialog.cancel;
+    $scope.login = function() {
+        $mdDialog.hide();
+    };
+    $scope.signup = function() {
+        $mdDialog.hide();
+    };
+    $scope.showDialog = function(event) {
+        $mdDialog.show({
+            templateUrl: 'login-dialog',
+            parent: angular.element(document.body),
+            targetEvent: event,
+            scope: $scope,
+            preserveScope: true,
+            clickOutsideToClose: true
+        });
+    };
 })
 
 .controller("calendar", function($scope, $filter) {

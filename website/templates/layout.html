@@ -11,7 +11,7 @@
         <!-- Our Style Sheets -->
         <link rel="stylesheet" href="/static/styles.css">
     </head>
-    <body ng-app="UOSTutors" ng-cloak>
+    <body ng-app="UOSTutors" layout="column" ng-cloak>
         <md-toolbar ng-controller="toolbar" class="md-hue-2" layout="row">
             <div class="md-toolbar-tools" flex-offset="20" flex="60">
                 <a href="/" id="logo">UOS Tutors</a>
@@ -21,11 +21,10 @@
                     <md-item-template>{{ subject }}</md-item-template>
                 </md-autocomplete>
                 <span flex></span>
-                <md-button class="md-button">Login</md-button>
-                <md-button class="md-button">Sign Up</md-button>
+                <md-button class="md-button" ng-click="showDialog($event)">Login / Sign Up</md-button>
             </div>
         </md-toolbar>
-        <ng-view style="min-height: 80%"></ng-view>
+        <ng-view style="min-height: initial" flex></ng-view>
 		<footer md-colors="{background: 'primary-400'}">
 			<div flex-offset="20" flex="60" layout="row" layout-align="space-between center" layout-padding>
 				<p>Privacy Policy<br>
@@ -35,6 +34,57 @@
 			</div>
 		</footer>
 
+        <script type="text/ng-template" id="login-dialog">
+            <md-dialog layout="column">
+                <md-toolbar flex="10">
+                    <div class="md-toolbar-tools" flex>
+                        <h2>Welcome To UOSTutors</h2>
+                        <span flex></span>
+                        <md-button class="md-icon-button" ng-click="cancel()">
+                            <md-icon md-font-icon="fa fa-times fa-lg"></md-icon>
+                        </md-button>
+                    </div>
+                </md-toolbar>
+                <md-dialog-content>
+                    <md-tabs md-dynamic-height md-colors="{background: 'default-grey-50'}">
+                        <md-tab label="login">
+                            <form style="margin: 0" ng-submit="login()">
+                                <md-content class="md-padding" layout="column">
+                                    <md-input-container style="margin: 16px 8px 0">
+                                        <label>Email</label>
+                                        <input ng-model="email" type="email" required>
+                                    </md-input-container>
+                                    <md-input-container style="margin: 16px 8px 16px">
+                                        <label>Password</label>
+                                        <input ng-model="password" type="password" required>
+                                    </md-input-container>
+                                    <md-button type="submit" class="md-raised md-primary">Login</md-button>
+                                </md-content>
+                            </form>
+                        </md-tab>
+                        <md-tab label="sign up">
+                            <form style="margin: 0" ng-submit="signup()">
+                                <md-content class="md-padding" layout="column">
+                                    <md-input-container style="margin: 16px 8px 0">
+                                        <label>Username</label>
+                                        <input ng-model="name" type="text" required>
+                                    </md-input-container>
+                                    <md-input-container style="margin: 16px 8px 0">
+                                        <label>Email Address</label>
+                                        <input ng-model="email" type="email" required>
+                                    </md-input-container>
+                                    <md-input-container style="margin: 16px 8px 16px">
+                                        <label>Password</label>
+                                        <input ng-model="password" type="password" required>
+                                    </md-input-container>
+                                    <md-button type="submit" class="md-raised md-primary">Sign Up</md-button>
+                                </md-content>
+                            </form>
+                        </md-tab>
+                    </md-tabs>
+                </md-dialog-content>
+            </md-dialog>
+        </script>
         <!-- Angular Material requires Angular.js Libraries -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.4/angular.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.4/angular-route.min.js"></script>
