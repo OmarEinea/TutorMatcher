@@ -1,32 +1,30 @@
-<div ng-controller="courses">
-    <div layout-padding></div>
-    <md-card ng-class="catClass" flex-offset="20" style="width: 18%">
-        <md-card-title>
-            <md-card-title-text>
-                <span class="md-headline">Categories</span>
-            </md-card-title-text>
-        </md-card-title>   
-        <md-list style="padding-bottom: 0">
-            <md-divider ng-repeat-start="subject in subjects"></md-divider>
-            <md-list-item class="md-1-line" ng-click="null" ng-repeat-end>
-                <div class="md-list-item-text" layout="column">
-                    <span>{{ subject }}</span>
-                </div>
-            </md-list-item>
-        </md-list>
-    </md-card>
-    <md-card flex-offset="40" flex="30" layout="row" layout-padding layout-align="start start" ng-repeat="num in shownCourses" redirect="Course">
-            <img src="https://images.pexels.com/photos/5775/calculator-scientific.jpg?dl&fit=crop&w=1280&h=853" flex="35">
-            <md-card-title-text layout="column" flex>
-                <span style="margin: 16px 0" class="md-headline" md-colors="::{color: 'grey-800'}">
-                    <md-icon md-font-icon="fa fa-book fa-fw" md-colors="::{color: 'grey-800'}"></md-icon>Calculus I ({{ num }})
-                </span>
-                <span class="md-subhead" md-colors="::{color: 'grey-600'}">
-                    <md-icon md-font-icon="fa fa-users fa-fw"></md-icon>{{ num }} Teachers
-                </span>
-            </md-card-title-text>
-    </md-card>
-    <div flex-offset="40" flex="30" layout-padding>
-        <md-collection-pagination layout-margin collection="allCourses" paginated-collection="shownCourses" per-page="7"></md-collection-pagination>
-    </div>
+<div layout-padding></div>
+<md-card ng-class="catClass" flex-offset="20" style="width: 18%">
+    <md-card-title>
+        <md-card-title-text>
+            <span class="md-headline">Categories</span>
+        </md-card-title-text>
+    </md-card-title>   
+    <md-list style="padding-bottom: 0">
+        <md-divider ng-repeat-start="subject in subjects"></md-divider>
+        <md-list-item class="md-1-line" ng-click="null" ng-repeat-end>
+            <div class="md-list-item-text" layout="column">
+                <span>{{ subject }}</span>
+            </div>
+        </md-list-item>
+    </md-list>
+</md-card>
+<md-card flex-offset="40" flex="30" layout="row" layout-padding layout-align="start start" ng-repeat="num in shownCourses" redirect="Course">
+        <img src="https://images.pexels.com/photos/5775/calculator-scientific.jpg?dl&fit=crop&w=1280&h=853" flex="35">
+        <md-card-title-text layout="column" flex>
+            <span style="margin: 16px 0" class="md-headline" md-colors="::{color: 'grey-800'}">
+                <md-icon md-font-icon="fa fa-book fa-fw" md-colors="::{color: 'grey-800'}"></md-icon>Calculus I ({{ num }})
+            </span>
+            <span class="md-subhead" md-colors="::{color: 'grey-600'}">
+                <md-icon md-font-icon="fa fa-users fa-fw"></md-icon>{{ num }} Teachers
+            </span>
+        </md-card-title-text>
+</md-card>
+<div flex-offset="40" flex="30" layout-padding>
+    <md-collection-pagination layout-margin collection="allCourses" paginated-collection="shownCourses" per-page="7"></md-collection-pagination>
 </div>

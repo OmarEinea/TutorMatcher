@@ -24,13 +24,18 @@
                 <md-button class="md-button" ng-click="showDialog($event)">Login / Sign Up</md-button>
             </div>
         </md-toolbar>
-        <ng-view style="min-height: initial" flex></ng-view>
+        <ng-view style="min-height: initial" flex="grow"></ng-view>
 		<footer md-colors="{background: 'primary-400'}">
 			<div flex-offset="20" flex="60" layout="row" layout-align="space-between center" layout-padding>
 				<p>Privacy Policy<br>
-				Satellite imagery: © 2014 Astrium, DigitalGlobe<br>
-					Some features and devices may not be available in all areas.</p>
-				<div>icons</div>
+				    UOSTutors Team: © 2017 Sharjah, UAE<br>
+					Services offered in website are only availabe in the UAE.</p>
+				<div layout="row" layout-margin>
+                    <md-icon md-font-icon="fa fa-facebook-square fa-2x" md-colors="{color: 'grey-A100'}"></md-icon>
+                    <md-icon md-font-icon="fa fa-twitter-square fa-2x" md-colors="{color: 'grey-A100'}"></md-icon>
+                    <md-icon md-font-icon="fa fa-google-plus-square fa-2x" md-colors="{color: 'grey-A100'}"></md-icon>
+                    <md-icon md-font-icon="fa fa-github-square fa-2x" md-colors="{color: 'grey-A100'}"></md-icon>
+                </div>
 			</div>
 		</footer>
 

@@ -39,3 +39,38 @@ md-dialog .md-toolbar-tools {
     position: fixed;
     margin-top: -56px;
 }
+
+calendar-md .layout-padding > div.flex,
+calendar-md .layout-padding {
+    padding: 0;
+}
+
+calendar-md .calendar > div[ng-repeat] > div {
+    position: relative;
+    box-shadow: none;
+}
+
+calendar-md .calendar > div[ng-repeat] > div button {
+    width: 35%;
+    min-width: 30px;
+    height: 35%;
+    min-height: 30px;
+    position: absolute;
+}
+
+.book-session {
+    transition: all 0.4s ease;
+    overflow: hidden;
+}
+
+.book-session.ng-animate {
+    display: none;
+}
+
+.closed-card {
+    height: 160px;
+}
+
+.open-card {
+    height: 240px;
+}

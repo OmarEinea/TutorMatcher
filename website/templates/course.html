@@ -13,21 +13,20 @@
         </p>
     </md-card-content>
 </md-card>
-<md-card layout="column" flex-offset="20" flex="60">
-    <md-card-title>
-        <md-card-title-text>
-            <span class="md-display-1">Tutors</span>
-        </md-card-title-text>
-    </md-card-title>
-    <div layout="row" layout-margin md-colors="{color: 'grey-800'}" layout-align="start center" redirect="Tutor">
-        <img src="https://s3-us-west-1.amazonaws.com/udacity-content/instructor/chris-lei@2x-a286e7c.jpg" style="height: 128px">
-        <div layout="column" flex="30">
-            <span class="md-title"><md-icon md-font-icon="fa fa-user fa-fw"></md-icon>Chris Lei</span>
+<div layout="row" flex-offset="20" flex="60">
+    <span class="md-display-1" style="padding: 40px 16px 8px">Tutors</span>
+</div>
+<md-card layout="column" flex-offset="20" flex="60" ng-repeat="tutor in tutors track by $index"
+         style="transition: height ease 0.5s;" ng-class="open?'open-card':'closed-card'">
+    <div layout="row" layout-align="start center" md-colors="{color: 'grey-800'}" layout-margin>
+        <img src="https://s3-us-west-1.amazonaws.com/udacity-content/instructor/chris-lei@2x-a286e7c.jpg" style="height: 128px" redirect="Tutor">
+        <div layout="column" flex="30" redirect="Tutor">
+            <span class="md-title"><md-icon md-font-icon="fa fa-user fa-fw"></md-icon>Chris Lei ({{ $index + 1 }})</span>
             <span class="md-subhead"><md-icon md-font-icon="fa fa-address-card fa-fw"></md-icon>Product Manager</span>
             <span class="md-subhead"><md-icon md-font-icon="fa fa-calendar fa-fw"></md-icon>654 Sessions</span>
             <span class="md-subhead"><md-icon md-font-icon="fa fa-book fa-fw"></md-icon>26 Courses</span>
         </div>
-        <div layout="column" flex>
+        <div layout="column" flex redirect="Tutor">
             <span class="md-subhead">
                 <md-icon md-font-icon="fa fa-star fa-fw"></md-icon>
                 <b style="margin-right: 12px">Students' Ratings:</b>
@@ -42,6 +41,13 @@
                 <b style="margin-right: 12px">Languages:</b> Chinese, English
             </span>
         </div>
-        <md-button class="md-raised md-primary" layout-padding>Book A Session</md-button>
+        <md-button class="md-raised md-primary" ng-click="open = !open" layout-padding>Book A Session</md-button>
+    </div>
+    <div id="tutor{{ $index }}" layout="row" class="book-session" layout-margin ng-show="open">
+        <md-datepicker ng-model="date" md-open-on-focus></md-datepicker>
+        <md-button class="md-raised md-warn md-hue-2" ng-click="addToCart(2)">From 2pm to 3pm</md-button>
+        <md-button class="md-raised md-warn md-hue-2" ng-click="addToCart(3)">From 3pm to 4pm</md-button>
+        <md-button class="md-raised md-warn md-hue-2" ng-click="addToCart(5)">From 5pm to 6pm</md-button>
+        <md-button class="md-raised md-warn md-hue-2" ng-click="addToCart(6)">From 6pm to 7pm</md-button>
     </div>
 </md-card>
