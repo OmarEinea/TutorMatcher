@@ -1,4 +1,4 @@
-angular.module('UOSTutors', ['ngMaterial', 'ngRoute', 'materialCalendar', 'mdCollectionPagination'])
+angular.module('UOSTutors', ['ngMaterial', 'ngRoute', 'ngStorage', 'materialCalendar', 'mdCollectionPagination'])
 
 .config(function($mdIconProvider, $locationProvider, $routeProvider){
     $mdIconProvider.icon("md-tabs-arrow", "/static/tabs-arrow-icon.svg");
@@ -31,7 +31,7 @@ angular.module('UOSTutors', ['ngMaterial', 'ngRoute', 'materialCalendar', 'mdCol
     }
 })
 
-.controller('toolbar', function($scope, $mdDialog) {
+.controller('toolbar', function($scope, $mdDialog, $localStorage) {
     $scope.subjects = ['Statistics', 'Accounting', 'Algebra', 'Finance', 'Chemistry',
                        'Calculus', 'Study Skills', 'Writing', 'Biology', 'Computer Science'];
 
@@ -52,6 +52,9 @@ angular.module('UOSTutors', ['ngMaterial', 'ngRoute', 'materialCalendar', 'mdCol
             clickOutsideToClose: true
         });
     };
+    $scope.$ls = $localStorage.$default({
+        items: []
+    });
 })
 
 .controller("tutor", function($scope, $filter) {
@@ -102,10 +105,10 @@ angular.module('UOSTutors', ['ngMaterial', 'ngRoute', 'materialCalendar', 'mdCol
     };
 })
 
-.controller('course', function($scope) {
+.controller('course', function($scope, $localStorage) {
     $scope.tutors = new Array(8);
     $scope.date = new Date();
     $scope.addToCart = function(session) {
-        
+        $localStorage.items.push(session);
     };
 });

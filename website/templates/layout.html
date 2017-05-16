@@ -11,7 +11,7 @@
         <!-- Our Style Sheets -->
         <link rel="stylesheet" href="/static/styles.css">
     </head>
-    <body ng-app="UOSTutors" layout="column" ng-cloak>
+    <body ng-app="UOSTutors" layout="column" ng-cloak style="position: relative">
         <md-toolbar ng-controller="toolbar" class="md-hue-2" layout="row">
             <div class="md-toolbar-tools" flex-offset="20" flex="60">
                 <a href="/" id="logo">UOS Tutors</a>
@@ -23,8 +23,40 @@
                 <span flex></span>
                 <md-button class="md-button" ng-click="showDialog($event)">Login / Sign Up</md-button>
             </div>
+            <div layout="row" layout-align="end end" style="position: fixed; top: 64; width: 100%" ng-if="$ls.items.length > 0">
+                <md-card flex="20" style="max-width: 19%">
+                    <md-card-title>
+                        <md-card-title-text>
+                            <span class="md-headline">My Sessions</span>
+                        </md-card-title-text>
+                    </md-card-title>
+                    <md-car-content>
+                        <md-list flex>
+                            <md-list-item class="md-3-line" ng-repeat="item in $ls.items">
+                                <img ng-src="https://images.pexels.com/photos/5775/calculator-scientific.jpg?dl&fit=crop&w=640&h=426" class="md-avatar" 
+                                     style="width: 50px; height: 50px"/>
+                                <div class="md-list-item-text" layout="column">
+                                    <h3>Calculus I</h3>
+                                    <h4>Chris Lei</h4>
+                                    <p>From {{ item }}pm to {{ item + 1 }}pm</p>
+                                    <p class="md-secondary" layout="column">
+                                        <md-button class="md-icon-button" ng-click="$ls.items.splice($ls.items.indexOf(item), 1)">
+                                            <md-icon md-font-icon="fa fa-times" style="color: black"></md-icon>
+                                        </md-button>
+                                        20AED
+                                    </p>
+                                </div>
+                            </md-list-item>
+                        </md-list>
+                    </md-car-content>
+                    <md-card-actions layout="row" layout-padding>
+                        <md-button class="md-raised md-primary" layout-padding flex redirect="Purchase">Checkout</md-button>
+                    </md-card-actions>
+                </md-card>
+            </div>
         </md-toolbar>
-        <ng-view style="min-height: initial" flex="grow"></ng-view>
+
+        <ng-view style="min-height: initial" flex></ng-view>
 		<footer md-colors="{background: 'primary-400'}">
 			<div flex-offset="20" flex="60" layout="row" layout-align="space-between center" layout-padding>
 				<p>Privacy Policy<br>
@@ -101,6 +133,8 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-material/1.1.4/angular-material.min.js"></script>
         <script src="https://cdn.rawgit.com/bradberger/angular-material-calendar/master/dist/angular-material-calendar.js"></script>
         <script src="https://cdn.rawgit.com/jonatanklosko/md-collection-pagination/master/dist/md-collection-pagination.min.js"></script>
+        <!-- Angular Local Storage -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/ngStorage/0.3.11/ngStorage.min.js"></script>
         <!-- Our Angular App -->
         <script src="/static/app.js"></script>
     </body>
