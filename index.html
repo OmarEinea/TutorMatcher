@@ -1,7 +1,7 @@
 <html>
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <base href="/">
+        <base href="/UOSTutors/">
         <!-- Angular Material style sheet -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/angular-material/1.1.4/angular-material.min.css">
         <!-- Font Awesome Icon Pack -->
@@ -9,14 +9,14 @@
         <!-- Satisfy Google Font -->
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Satisfy">
         <!-- Our Style Sheets -->
-        <link rel="stylesheet" href="/static/styles.css">
+        <link rel="stylesheet" href="styles.css">
     </head>
     <body ng-app="UOSTutors" layout="column" ng-cloak style="position: relative">
         <md-toolbar ng-controller="toolbar" class="md-hue-2" layout="row">
             <div class="md-toolbar-tools" flex-offset="20" flex="60">
-                <a href="/" id="logo">UOS Tutors</a>
-                <a href="Courses" style="margin-right: 16px">Courses</a>
-                <a href="Tutors" style="margin-right: 24px">Tutors</a>
+                <a href="" id="logo">UOS Tutors</a>
+                <a href="courses.html" style="margin-right: 16px">Courses</a>
+                <a href="tutors.html" style="margin-right: 24px">Tutors</a>
                 <md-autocomplete md-items="subject in subjects" md-item-text="subject" placeholder="Search a Subject" flex>
                     <md-item-template>{{ subject }}</md-item-template>
                 </md-autocomplete>
@@ -136,6 +136,6 @@
         <!-- Angular Local Storage -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/ngStorage/0.3.11/ngStorage.min.js"></script>
         <!-- Our Angular App -->
-        <script src="/static/app.js"></script>
+        <script src="app.js"></script>
     </body>
 </html>

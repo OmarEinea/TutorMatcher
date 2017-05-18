@@ -1,20 +1,21 @@
 angular.module('UOSTutors', ['ngMaterial', 'ngRoute', 'ngStorage', 'materialCalendar', 'mdCollectionPagination'])
 
-.config(function($mdIconProvider, $locationProvider, $routeProvider){
-    $mdIconProvider.icon("md-tabs-arrow", "/static/tabs-arrow-icon.svg");
+.config(function($mdIconProvider, $locationProvider, $routeProvider, $localStorageProvider){
+    $mdIconProvider.icon("md-tabs-arrow", "UOSTutors/tabs-arrow-icon.svg");
     $locationProvider.html5Mode(true);
+    $localStorageProvider.setKeyPrefix('');
     $routeProvider.when("/", {
-        templateUrl: '/html/index'
-    }).when("/Courses", {
-        templateUrl: '/html/courses',
+        templateUrl: 'home.html'
+    }).when("/courses.html", {
+        templateUrl: 'courses.html',
         controller: 'courses'
-    }).when("/Tutors", {
-        templateUrl: '/html/tutors'
-    }).when("/Tutor", {
-        templateUrl: '/html/tutor',
+    }).when("/tutors.html", {
+        templateUrl: 'tutors.html'
+    }).when("/tutor.html", {
+        templateUrl: 'tutor.html',
         controller: 'tutor'
-    }).when("/Course", {
-        templateUrl: '/html/course',
+    }).when("/course.html", {
+        templateUrl: 'course.html',
         controller: 'course'
     });
 })
@@ -29,6 +30,11 @@ angular.module('UOSTutors', ['ngMaterial', 'ngRoute', 'ngStorage', 'materialCale
             });
         }
     }
+})
+
+.run(function($location) {
+    if($location.path() == "/index.html")
+        $location.path('/');
 })
 
 .controller('toolbar', function($scope, $mdDialog, $localStorage) {
