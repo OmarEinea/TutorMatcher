@@ -1,4 +1,14 @@
-angular.module('UOSTutors', ['ngMaterial', 'ngRoute', 'ngStorage', 'materialCalendar', 'mdCollectionPagination'])
+var fb = firebase.initializeApp({
+    apiKey: "AIzaSyACRVxzZhfUMcQqrn3RX-p8cFgXk1fUdxw",
+    authDomain: "uos-tutors.firebaseapp.com",
+    databaseURL: "https://uos-tutors.firebaseio.com",
+    projectId: "uos-tutors",
+    storageBucket: "uos-tutors.appspot.com",
+    messagingSenderId: "1028351008990"
+});
+fb.auth().signInWithEmailAndPassword("eineao@ymail.com", "testing");
+
+angular.module('UOSTutors', ['ngMaterial', 'ngRoute', 'ngStorage', 'materialCalendar', "mdCollectionPagination", 'firebase'])
 
 .config(function($mdIconProvider, $locationProvider, $routeProvider, $localStorageProvider){
     $mdIconProvider.icon("md-tabs-arrow", "UOSTutors/tabs-arrow-icon.svg");
@@ -25,7 +35,7 @@ angular.module('UOSTutors', ['ngMaterial', 'ngRoute', 'ngStorage', 'materialCale
         link: function(scope, element, attrs) {
             element.on('click', function() {
                 scope.$apply(function() {
-                    $location.path(attrs.redirect);
+                    $location.path(attrs.redirect.toLowerCase() + ".html");
                 });
             });
         }
@@ -94,13 +104,20 @@ angular.module('UOSTutors', ['ngMaterial', 'ngRoute', 'ngStorage', 'materialCale
     };
 })
 
-.controller('courses', function($scope, $window) {
+.controller('courses', function($scope, $window, $location, $firebaseObject, $localStorage) {
     $scope.subjects = ['Statistics', 'Accounting', 'Algebra', 'Finance', 'Chemistry',
                        'Calculus', 'Study Skills', 'Writing', 'Biology', 'Computer Science'];
-
-    $scope.allCourses = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20];
+    
+    $scope.allCourses = [1,2,3];
     $scope.shownCourses = null;
-
+    $scope.allCourses = $firebaseObject(fb.database().ref('Courses'));
+    $scope.goToCourse = function(cname) {
+        $localStorage.cname = cname;
+        $location.path('course.html');
+    };
+    $scope.lengthOf = function(array) {
+        return Object.keys(array).length;
+    };
     $scope.catClass = "absolute";
     $window.onscroll = function() {
         var catClass = document.body.scrollTop > 64 ? "fixed" : "absolute";
@@ -111,9 +128,10 @@ angular.module('UOSTutors', ['ngMaterial', 'ngRoute', 'ngStorage', 'materialCale
     };
 })
 
-.controller('course', function($scope, $localStorage) {
+.controller('course', function($scope, $localStorage, $firebaseObject) {
     $scope.tutors = new Array(8);
     $scope.date = new Date();
+    $scope.course = $firebaseObject(fb.database().ref('Courses/' + $localStorage.cname));
     $scope.addToCart = function(session) {
         $localStorage.items.push(session);
     };
