@@ -1,0 +1,465 @@
+{
+  "Courses" : {
+    "ARBC" : {
+      "code" : 1410578,
+      "desc" : "University Requirement",
+      "level" : 1,
+      "name" : "Arabic for College",
+      "pic" : "https://zusiddiqui.files.wordpress.com/2014/02/alhamdulillah.jpg",
+      "taught_by" : {
+        "t1" : "U3"
+      }
+    },
+    "BIO1" : {
+      "code" : 1411941,
+      "desc" : "Introductory course to Biology",
+      "level" : 1,
+      "name" : "Biology",
+      "pic" : "https://www.mackin.com/cms/uploads/images/eServices/rosen/cc_biology.png",
+      "taught_by" : {
+        "t1" : "U4"
+      }
+    },
+    "CALC1" : {
+      "code" : 14120465,
+      "desc" : "Introduction to Calculus",
+      "level" : 1,
+      "name" : "Calculus 1",
+      "pic" : "https://www.coloradocollege.edu/resize_image?id=d5be32b9-294c-4574-9937-63ee9d23bd9b&w=695",
+      "taught_by" : {
+        "t1" : "U5"
+      }
+    },
+    "CHEM1" : {
+      "code" : 14190214,
+      "desc" : "Introduction to Chemistry",
+      "level" : 1,
+      "name" : "Chemistry 1",
+      "pic" : "https://s-media-cache-ak0.pinimg.com/originals/12/02/24/120224b249dd23f16671a58c4450c811.png",
+      "taught_by" : {
+        "t1" : "U3",
+        "t2" : "U4"
+      }
+    },
+    "CS1" : {
+      "code" : 1411123,
+      "desc" : "Introduction to Computer Science",
+      "level" : 1,
+      "name" : "Intro. to CS",
+      "pic" : "http://www.ocr.org.uk/Images/Comp_Sci_Eventbrite%20image.png",
+      "taught_by" : {
+        "t1" : "U0",
+        "t2" : "U5"
+      }
+    },
+    "DS" : {
+      "code" : 14134092,
+      "desc" : "Introduction to Data Structures",
+      "level" : 1,
+      "name" : "Data Structures",
+      "pic" : "http://freevideolectures.com/course_images/thumb/Data%20Structures%20Fall%2020111435211821.jpg",
+      "taught_by" : {
+        "t1" : "U0"
+      }
+    },
+    "ISLCV" : {
+      "code" : 14190465,
+      "desc" : "University Elective",
+      "level" : 1,
+      "name" : "Islamic Civilisation",
+      "pic" : "http://nocompulsion.com/wp-content/uploads/2014/06/slide1.jpg",
+      "taught_by" : {
+        "t1" : "U3",
+        "t2" : "U4"
+      }
+    },
+    "PHY1" : {
+      "code" : 14120987,
+      "desc" : "Introductory course to Physics",
+      "level" : 1,
+      "name" : "Physics 1",
+      "pic" : "http://www.physicsisphun.org/graphics/Physics%20Logo.jpg",
+      "taught_by" : {
+        "t1" : "U2"
+      }
+    },
+    "PHY2" : {
+      "code" : 14120988,
+      "desc" : "Second introductory course to Physics",
+      "level" : 2,
+      "name" : "Physics 2",
+      "pic" : "https://entangledphysics.files.wordpress.com/2016/02/entangled-e1456014761963.jpg",
+      "taught_by" : {
+        "t1" : "U2"
+      }
+    },
+    "PRG1" : {
+      "code" : 1411001,
+      "desc" : "College Requirement for Engineering and Sciences",
+      "level" : 2,
+      "name" : "Programming 1",
+      "pic" : "https://i1.wp.com/yourspot.net/wp-content/uploads/2017/03/Programming-Languages-For-Hacking-1.jpg?fit=640%2C369",
+      "taught_by" : {
+        "t1" : "U0",
+        "t2" : "U2",
+        "t3" : "U5"
+      }
+    }
+  },
+  "Sessions" : {
+    "S0" : {
+      "course_name" : "Calculus 1",
+      "end_time" : "18:00",
+      "start_time" : "19:00",
+      "tutee_name" : "Shaheen",
+      "tutor_name" : "Abdullah"
+    },
+    "S1" : {
+      "course_name" : "",
+      "end_time" : "15:00",
+      "start_time" : "14:00",
+      "tutee_name" : "",
+      "tutor_name" : "Ahmed"
+    },
+    "S10" : {
+      "course_name" : "Arabic for College",
+      "end_time" : "17:00",
+      "start_time" : "18:00",
+      "tutee_name" : "",
+      "tutor_name" : "Aamir"
+    },
+    "S11" : {
+      "course_name" : "",
+      "end_time" : "15:00",
+      "start_time" : "16:00",
+      "tutee_name" : "",
+      "tutor_name" : "Hamid"
+    },
+    "S12" : {
+      "course_name" : "",
+      "end_time" : "14:00",
+      "start_time" : "15:00",
+      "tutee_name" : "",
+      "tutor_name" : "Jabir"
+    },
+    "S13" : {
+      "course_name" : "Biology 1",
+      "end_time" : "16:00",
+      "start_time" : "17:00",
+      "tutee_name" : "",
+      "tutor_name" : "Yunus"
+    },
+    "S14" : {
+      "course_name" : "Programming 1",
+      "end_time" : "18:00",
+      "start_time" : "19:00",
+      "tutee_name" : "",
+      "tutor_name" : "Mustafa"
+    },
+    "S2" : {
+      "course_name" : "Intro. to CS",
+      "end_time" : "11:00",
+      "start_time" : "12:00",
+      "tutee_name" : "Omar",
+      "tutor_name" : "Sameer"
+    },
+    "S3" : {
+      "course_name" : "Data Structures",
+      "end_time" : "09:00",
+      "start_time" : "10:00",
+      "tutee_name" : "Imran",
+      "tutor_name" : "Yasir"
+    },
+    "S4" : {
+      "course_name" : "",
+      "end_time" : "16:00",
+      "start_time" : "17:00",
+      "tutee_name" : "",
+      "tutor_name" : "Abdullah"
+    },
+    "S5" : {
+      "course_name" : "Calculus 1",
+      "end_time" : "18:00",
+      "start_time" : "19:00",
+      "tutee_name" : "Shaheen",
+      "tutor_name" : "Saad"
+    },
+    "S6" : {
+      "course_name" : "Programming 1",
+      "end_time" : "15:00",
+      "start_time" : "14:00",
+      "tutee_name" : "Omar",
+      "tutor_name" : "Yasir"
+    },
+    "S7" : {
+      "course_name" : "",
+      "end_time" : "11:00",
+      "start_time" : "12:00",
+      "tutee_name" : "",
+      "tutor_name" : "Ahmed"
+    },
+    "S8" : {
+      "course_name" : "",
+      "end_time" : "09:00",
+      "start_time" : "10:00",
+      "tutee_name" : "",
+      "tutor_name" : "Sameer"
+    },
+    "S9" : {
+      "course_name" : "Chemistry 1",
+      "end_time" : "16:00",
+      "start_time" : "17:00",
+      "tutee_name" : "Imran",
+      "tutor_name" : "Saad"
+    }
+  },
+  "Users" : {
+    "U0" : {
+      "age" : 38,
+      "email" : "abdullah@gmail.com",
+      "languages" : "English, Arabic",
+      "name" : "Abdullah",
+      "phone" : "055777666",
+      "pic" : "https://s3-us-west-1.amazonaws.com/udacity-content/instructor/andy-brown%402x.jpg",
+      "rating" : 5,
+      "sessions" : {
+        "s1" : "S0",
+        "s2" : "S4"
+      },
+      "teaches" : {
+        "c1" : "CS1",
+        "c2" : "DS",
+        "c3" : "PRG1"
+      },
+      "tutor" : true
+    },
+    "U1" : {
+      "age" : 37,
+      "email" : "imran@gmail.com",
+      "languages" : "English, Chinese",
+      "name" : "Imran",
+      "phone" : "0551234567",
+      "rating" : 5,
+      "sessions" : {
+        "s1" : "S3",
+        "s2" : "S9"
+      },
+      "tutor" : false
+    },
+    "U10" : {
+      "age" : 23,
+      "email" : "aamir@gmail.com",
+      "languages" : "English, French",
+      "name" : "Aamir",
+      "phone" : "0573339898",
+      "pic" : "https://s3.amazonaws.com/uifaces/faces/twitter/marcosmoralez/128.jpg",
+      "rating" : 3.5,
+      "sessions" : {
+        "s1" : "",
+        "s2" : ""
+      },
+      "teaches" : {
+        "c1" : "",
+        "c2" : "",
+        "c3" : ""
+      },
+      "tutor" : true
+    },
+    "U11" : {
+      "age" : 20,
+      "email" : "jabir@gmail.com",
+      "languages" : "English, Tunisian",
+      "name" : "Jabir",
+      "phone" : "0573339898",
+      "pic" : "https://s3.amazonaws.com/uifaces/faces/twitter/calebogden/128.jpg",
+      "rating" : 4.5,
+      "sessions" : {
+        "s1" : "",
+        "s2" : ""
+      },
+      "teaches" : {
+        "c1" : "",
+        "c2" : "",
+        "c3" : ""
+      },
+      "tutor" : true
+    },
+    "U12" : {
+      "age" : 29,
+      "email" : "yunus@gmail.com",
+      "languages" : "English",
+      "name" : "Yunus",
+      "phone" : "0573339898",
+      "pic" : "https://s3.amazonaws.com/uifaces/faces/twitter/jsa/128.jpg",
+      "rating" : 1.5,
+      "sessions" : {
+        "s1" : "",
+        "s2" : ""
+      },
+      "teaches" : {
+        "c1" : "",
+        "c2" : "",
+        "c3" : ""
+      },
+      "tutor" : true
+    },
+    "U13" : {
+      "age" : 24,
+      "email" : "mustafa@gmail.com",
+      "languages" : "English, Hindi",
+      "name" : "Mustafa",
+      "phone" : "0573339898",
+      "pic" : "https://s3.amazonaws.com/uifaces/faces/twitter/kareemhmostafa/128.jpg",
+      "rating" : 1,
+      "sessions" : {
+        "s1" : "",
+        "s2" : ""
+      },
+      "teaches" : {
+        "c1" : "",
+        "c2" : "",
+        "c3" : ""
+      },
+      "tutor" : true
+    },
+    "U14" : {
+      "age" : 31,
+      "email" : "hamid@gmail.com",
+      "languages" : "English, Hausa",
+      "name" : "Hamid",
+      "phone" : "0573339898",
+      "pic" : "https://s3.amazonaws.com/uifaces/faces/twitter/peterme/128.jpg",
+      "rating" : 5,
+      "sessions" : {
+        "s1" : "",
+        "s2" : ""
+      },
+      "teaches" : {
+        "c1" : "",
+        "c2" : "",
+        "c3" : ""
+      },
+      "tutor" : true
+    },
+    "U2" : {
+      "age" : 21,
+      "email" : "ahmed@gmail.com",
+      "languages" : "English, Egyptian",
+      "name" : "Ahmed",
+      "phone" : "0573339898",
+      "pic" : "https://s3-us-west-1.amazonaws.com/udacity-content/instructor/cameron-pittman@2x-22f3eb5.jpg",
+      "rating" : 3,
+      "sessions" : {
+        "s1" : "S1",
+        "s2" : "S7"
+      },
+      "teaches" : {
+        "c1" : "PHY1",
+        "c2" : "PHY2",
+        "c3" : "PRG1"
+      },
+      "tutor" : true
+    },
+    "U3" : {
+      "age" : 28,
+      "email" : "Sameer@gmail.com",
+      "languages" : "English, Urdu",
+      "name" : "Sameer",
+      "phone" : "0513427657",
+      "pic" : "https://s3.amazonaws.com/uifaces/faces/twitter/jadlimcaco/128.jpg",
+      "rating" : 5,
+      "sessions" : {
+        "s1" : "S2",
+        "s2" : "S8"
+      },
+      "teaches" : {
+        "c1" : "CHEM1",
+        "c2" : "ARBC",
+        "c3" : "ISLCV"
+      },
+      "tutor" : true
+    },
+    "U4" : {
+      "age" : 24,
+      "email" : "Saad@gmail.com",
+      "languages" : "English",
+      "name" : "Saad",
+      "phone" : "0553434363",
+      "pic" : "https://s3-us-west-1.amazonaws.com/udacity-content/instructor/ryan-keenan@2x-9a7dfc8.jpg",
+      "rating" : 5,
+      "sessions" : {
+        "s1" : "S5",
+        "s2" : "S9"
+      },
+      "teaches" : {
+        "c1" : "BIO1",
+        "c2" : "ISLCV",
+        "c3" : "CHEM1"
+      },
+      "tutor" : true
+    },
+    "U5" : {
+      "age" : 38,
+      "email" : "Yasir@gmail.com",
+      "languages" : "English, Turkish",
+      "name" : "Yasir",
+      "phone" : "055777666",
+      "pic" : "https://s3-us-west-1.amazonaws.com/udacity-content/instructor/sebastian-thrun@2x-f793a4f.jpg",
+      "rating" : 5,
+      "sessions" : {
+        "s1" : "S3",
+        "s2" : "S6"
+      },
+      "teaches" : {
+        "c1" : "CALC1",
+        "c2" : "PRG1",
+        "c3" : "CS1"
+      },
+      "tutor" : true
+    },
+    "U6" : {
+      "age" : 37,
+      "email" : "ali@gmail.com",
+      "languages" : "English, Turkish",
+      "name" : "Ali",
+      "phone" : "0551234567",
+      "rating" : 5,
+      "tutor" : false
+    },
+    "U7" : {
+      "age" : 21,
+      "email" : "omar@gmail.com",
+      "languages" : "English, French",
+      "name" : "Omar",
+      "phone" : "0573339898",
+      "rating" : 3,
+      "sessions" : {
+        "s1" : "S2",
+        "s2" : "S6"
+      },
+      "tutor" : false
+    },
+    "U8" : {
+      "age" : 28,
+      "email" : "basel@gmail.com",
+      "languages" : "English",
+      "name" : "Basel",
+      "phone" : "0513427657",
+      "rating" : 5,
+      "tutor" : false
+    },
+    "U9" : {
+      "age" : 24,
+      "email" : "shaheen@gmail.com",
+      "languages" : "English, Tagalog",
+      "name" : "Shaheen",
+      "phone" : "0553434363",
+      "rating" : 5,
+      "sessions" : {
+        "s1" : "S0",
+        "s2" : "S5"
+      },
+      "tutor" : false
+    }
+  }
+}
