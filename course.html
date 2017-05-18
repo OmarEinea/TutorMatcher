@@ -7,21 +7,19 @@
     </md-card-title>
     <md-card-content>
         <p><b>About the Course:</b>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin hendrerit lacus ac mi luctus efficitur. Nulla lacinia sapien nec finibus tincidunt. Morbi volutpat diam tellus, ac pulvinar risus molestie vitae. Aenean tristique lacus sit amet diam fermentum ultricies. Nam in tortor commodo, ultrices felis ut, mollis tellus. Donec tellus ligula, consectetur id mi sit amet, sollicitudin egestas leo. Quisque eget massa odio. Sed lobortis eros in nibh pharetra consequat. Morbi id mauris feugiat, blandit velit a, dignissim lectus. Quisque a massa venenatis, venenatis risus et, fringilla massa.
-
-            Donec a est nec tortor blandit commodo id quis mi. Curabitur malesuada id arcu sed tincidunt. Aliquam erat volutpat. Donec et purus tincidunt, malesuada tortor non, sodales libero. Morbi auctor non velit viverra lobortis. Pellentesque viverra at lectus quis ultrices. Ut molestie gravida nisi et pretium. Nunc semper convallis mattis. Nulla et leo vel ex egestas pellentesque eget eu lectus. Aliquam consequat iaculis nisl vitae feugiat.
+            {{ course.desc }}
         </p>
     </md-card-content>
 </md-card>
 <div layout="row" flex-offset="20" flex="60">
     <span class="md-display-1" style="padding: 40px 16px 8px">Tutors</span>
 </div>
-<md-card layout="column" flex-offset="20" flex="60" ng-repeat="tutor in tutors track by $index"
+<md-card layout="column" flex-offset="20" flex="60" ng-repeat="(id, fk) in course.taught_by"
          style="transition: height ease 0.5s;" ng-class="open?'open-card':'closed-card'">
     <div layout="row" layout-align="start center" md-colors="{color: 'grey-800'}" layout-margin>
-        <img src="https://s3-us-west-1.amazonaws.com/udacity-content/instructor/chris-lei@2x-a286e7c.jpg" style="height: 128px" redirect="Tutor">
+        <img src="{{ tutors[fk].pic }}" style="height: 128px" ng-click="goToTutor(fk)">
         <div layout="column" flex="30" redirect="Tutor">
-            <span class="md-title"><md-icon md-font-icon="fa fa-user fa-fw"></md-icon>Chris Lei ({{ $index + 1 }})</span>
+            <span class="md-title"><md-icon md-font-icon="fa fa-user fa-fw"></md-icon>{{ tutors[fk].name }}</span>
             <span class="md-subhead"><md-icon md-font-icon="fa fa-address-card fa-fw"></md-icon>Product Manager</span>
             <span class="md-subhead"><md-icon md-font-icon="fa fa-calendar fa-fw"></md-icon>654 Sessions</span>
             <span class="md-subhead"><md-icon md-font-icon="fa fa-book fa-fw"></md-icon>26 Courses</span>
@@ -38,7 +36,7 @@
             </span>
             <span class="md-subhead">
                 <md-icon md-font-icon="fa fa-language fa-fw"></md-icon>
-                <b style="margin-right: 12px">Languages:</b> Chinese, English
+                <b style="margin-right: 12px">Languages:</b> {{ tutors[fk].languages }}
             </span>
         </div>
         <md-button class="md-raised md-primary" ng-click="open = !open" layout-padding>Book A Session</md-button>

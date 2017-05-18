@@ -1,12 +1,12 @@
 <md-card layout="column" flex-offset="20" flex="60" style="margin-top: 200px">
     <div layout="row" layout-align="center start">
         <md-card style="border: solid white 6px; border-radius: 100%; overflow: hidden; margin-top: -164px">
-            <img src="https://s3-us-west-1.amazonaws.com/udacity-content/instructor/chris-lei@2x-a286e7c.jpg">
+            <img src="{{ tutor.pic }}">
         </md-card>
     </div>
     <div layout="row" layout-align="center" layout-margin>
         <md-card-title-text>
-            <span class="md-display-1">Chris Lei</span>
+            <span class="md-display-1">{{ tutor.name }}</span>
         </md-card-title-text>
     </div>
     <div layout="row" layout-margin md-colors="{color: 'grey-800'}" layout-align="center center">
@@ -24,7 +24,7 @@
             </span>
             <span class="md-subhead">
                 <md-icon md-font-icon="fa fa-language fa-fw"></md-icon>
-                <b style="margin-right: 12px">Languages:</b> Chinese, English
+                <b style="margin-right: 12px">Languages:</b> {{ tutor.languages }}
             </span>
         </div>
     </div>
