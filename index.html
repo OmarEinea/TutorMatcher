@@ -1,7 +1,9 @@
 <html>
     <head>
+        <!-- Set Base URL According to Current Host -->
+        <script>document.write('<base href="' + location.pathname + '">');</script>
+        <!-- Let Browser Know Website Is Optimized For Mobile -->
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <base href="/UOSTutors/">
         <!-- Angular Material style sheet -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/angular-material/1.1.4/angular-material.min.css">
         <!-- Font Awesome Icon Pack -->
@@ -14,7 +16,7 @@
     <body ng-app="UOSTutors" layout="column" ng-cloak style="position: relative">
         <md-toolbar ng-controller="toolbar" class="md-hue-2" layout="row">
             <div class="md-toolbar-tools" flex-offset="20" flex="60">
-                <a href="/" id="logo">UOS Tutors</a>
+                <a href="home.html" id="logo">UOS Tutors</a>
                 <a href="courses.html" style="margin-right: 16px">Courses</a>
                 <a href="tutors.html" style="margin-right: 24px">Tutors</a>
                 <md-autocomplete md-items="subject in subjects" md-item-text="subject" placeholder="Search a Subject" flex>

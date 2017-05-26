@@ -16,6 +16,8 @@ angular.module('UOSTutors', ['ngMaterial', 'ngRoute', 'ngStorage', 'materialCale
     $localStorageProvider.setKeyPrefix('');
     $routeProvider.when("/", {
         templateUrl: 'home.html'
+    }).when("/home.html", {
+        templateUrl: 'home.html'
     }).when("/courses.html", {
         templateUrl: 'courses.html',
         controller: 'courses'
@@ -44,7 +46,10 @@ angular.module('UOSTutors', ['ngMaterial', 'ngRoute', 'ngStorage', 'materialCale
 })
 
 .run(function($location) {
-    if($location.path() == "/index.html")
+    if($location.hash()) {
+        $location.path('/' + $location.hash());
+        $location.hash('');
+    } else if($location.path() == "/index.html")
         $location.path('/');
 })
 

@@ -1,1 +1,8 @@
+<script>
+    if(window.angular === undefined) {
+        var index = location.pathname.lastIndexOf('/') + 1;
+        location.replace(location.origin + location.pathname.substring(0, index) + '#' + location.pathname.substring(index));
+    }
+</script>
+
 <div id="banner"></div>

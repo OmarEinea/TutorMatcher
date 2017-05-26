@@ -1,3 +1,10 @@
+<script>
+    if(window.angular === undefined) {
+        var index = location.pathname.lastIndexOf('/') + 1;
+        location.replace(location.origin + location.pathname.substring(0, index) + '#' + location.pathname.substring(index));
+    }
+</script>
+
 <div layout-padding></div>
 <md-card ng-class="catClass" flex-offset="20" style="width: 18%">
     <md-card-title>
@@ -15,7 +22,7 @@
     </md-list>
 </md-card>
 <md-card flex-offset="40" flex="30" layout="row" layout-padding layout-align="start start" ng-repeat="(id, course) in allCourses" ng-click="goToCourse(id)">
-        <img src="{{ course.pic }}" style="width: 200px; height: 200px">
+        <img ng-src="{{ course.pic }}" style="width: 200px; height: 200px">
         <md-card-title-text layout="column" flex>
             <span style="margin: 16px 0" class="md-headline" md-colors="::{color: 'grey-800'}">
                 <md-icon md-font-icon="fa fa-book fa-fw" md-colors="::{color: 'grey-800'}"></md-icon>{{ course.name }}

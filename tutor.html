@@ -1,3 +1,10 @@
+<script>
+    if(window.angular === undefined) {
+        var index = location.pathname.lastIndexOf('/') + 1;
+        location.replace(location.origin + location.pathname.substring(0, index) + '#' + location.pathname.substring(index));
+    }
+</script>
+
 <md-card layout="column" flex-offset="20" flex="60" style="margin-top: 200px">
     <div layout="row" layout-align="center start">
         <md-card style="border: solid white 6px; border-radius: 100%; overflow: hidden; margin-top: -164px">

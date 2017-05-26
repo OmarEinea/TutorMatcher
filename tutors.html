@@ -1,3 +1,10 @@
+<script>
+    if(window.angular === undefined) {
+        var index = location.pathname.lastIndexOf('/') + 1;
+        location.replace(location.origin + location.pathname.substring(0, index) + '#' + location.pathname.substring(index));
+    }
+</script>
+
 <div ng-controller="courses">
     <div layout-padding></div>
     <md-card flex-offset="30" flex="40" layout="row" layout-padding layout-align="start center" ng-repeat="(key, tutor) in tutors" ng-click="goToTutor(key)" ng-if="tutor.tutor">
