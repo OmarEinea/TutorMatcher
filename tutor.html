@@ -1,14 +1,14 @@
 <script>
     if(window.angular === undefined) {
         var index = location.pathname.lastIndexOf('/') + 1;
-        location.replace(location.origin + location.pathname.substring(0, index) + '#' + location.pathname.substring(index));
+        location.replace(location.origin + location.pathname.substring(0, index) + '#/' + location.pathname.substring(index));
     }
 </script>
 
 <md-card layout="column" flex-offset="20" flex="60" style="margin-top: 200px">
     <div layout="row" layout-align="center start">
         <md-card style="border: solid white 6px; border-radius: 100%; overflow: hidden; margin-top: -164px">
-            <img src="{{ tutor.pic }}">
+            <img ng-src="{{ tutor.pic }}" style="width: 320px; height: 320px">
         </md-card>
     </div>
     <div layout="row" layout-align="center" layout-margin>
@@ -61,27 +61,11 @@
 </md-card>
 <p flex-offset="20" flex="60" class="md-display-1" style="padding-left: 16px">Teaches:</p>
 <div flex-offset="20" flex="60" layout="row">
-    <md-card flex="33" redirect="Course">
-        <img src="https://images.pexels.com/photos/5775/calculator-scientific.jpg?dl&fit=crop&w=1280&h=853">
+    <md-card flex="33" redirect="Course/{{ fk }}" ng-repeat="fk in tutor.teaches">
+        <img ng-src="{{ courses[fk].pic }}">
         <md-card-title>
             <md-card-title-text layout="row" layout-align="center">
-                <span class="md-headline">Calculus I</span>
-            </md-card-title-text>
-        </md-card-title>
-    </md-card>
-    <md-card flex="33" redirect="Course">
-        <img src="https://images.pexels.com/photos/90807/pexels-photo-90807.jpeg?dl&fit=crop&w=1280&h=853">
-        <md-card-title>
-            <md-card-title-text layout="row" layout-align="center">
-                <span class="md-headline">Programming</span>
-            </md-card-title-text>
-        </md-card-title>
-    </md-card>
-    <md-card flex="33" redirect="Course">
-        <img src="https://images.pexels.com/photos/25970/pexels-photo.jpg?dl&fit=crop&w=1280&h=847">
-        <md-card-title>
-            <md-card-title-text layout="row" layout-align="center">
-                <span class="md-headline">Business</span>
+                <span class="md-headline">{{ courses[fk].name }}</span>
             </md-card-title-text>
         </md-card-title>
     </md-card>

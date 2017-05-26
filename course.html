@@ -1,12 +1,12 @@
 <script>
     if(window.angular === undefined) {
         var index = location.pathname.lastIndexOf('/') + 1;
-        location.replace(location.origin + location.pathname.substring(0, index) + '#' + location.pathname.substring(index));
+        location.replace(location.origin + location.pathname.substring(0, index) + '#/' + location.pathname.substring(index));
     }
 </script>
 
 <md-card flex-offset="20" flex="60">
-    <img src="{{ course.pic }}" class="md-card-image" style="height: 480px">
+    <img ng-src="{{ course.pic }}" class="md-card-image" style="height: 480px">
     <md-card-title>
         <md-card-title-text>
             <span class="md-display-1">{{ course.name }}</span>
@@ -24,14 +24,14 @@
 <md-card layout="column" flex-offset="20" flex="60" ng-repeat="(id, fk) in course.taught_by"
          style="transition: height ease 0.5s;" ng-class="open?'open-card':'closed-card'">
     <div layout="row" layout-align="start center" md-colors="{color: 'grey-800'}" layout-margin>
-        <img src="{{ tutors[fk].pic }}" style="height: 128px" ng-click="goToTutor(fk)">
-        <div layout="column" flex="30" redirect="Tutor">
+        <img ng-src="{{ tutors[fk].pic }}" style="height: 128px" redirect="Tutor/{{ fk }}">
+        <div layout="column" flex="30" redirect="Tutor/{{ fk }}">
             <span class="md-title"><md-icon md-font-icon="fa fa-user fa-fw"></md-icon>{{ tutors[fk].name }}</span>
             <span class="md-subhead"><md-icon md-font-icon="fa fa-address-card fa-fw"></md-icon>Product Manager</span>
             <span class="md-subhead"><md-icon md-font-icon="fa fa-calendar fa-fw"></md-icon>654 Sessions</span>
             <span class="md-subhead"><md-icon md-font-icon="fa fa-book fa-fw"></md-icon>26 Courses</span>
         </div>
-        <div layout="column" flex redirect="Tutor">
+        <div layout="column" flex redirect="Tutor/{{ fk }}">
             <span class="md-subhead">
                 <md-icon md-font-icon="fa fa-star fa-fw"></md-icon>
                 <b style="margin-right: 12px">Students' Ratings:</b>
@@ -48,11 +48,11 @@
         </div>
         <md-button class="md-raised md-primary" ng-click="open = !open" layout-padding>Book A Session</md-button>
     </div>
-    <div id="tutor{{ $index }}" layout="row" class="book-session" layout-margin ng-show="open">
+    <div layout="row" class="book-session" layout-margin ng-show="open">
         <md-datepicker ng-model="date" md-open-on-focus></md-datepicker>
-        <md-button class="md-raised md-warn md-hue-2" ng-click="addToCart(2)">From 2pm to 3pm</md-button>
-        <md-button class="md-raised md-warn md-hue-2" ng-click="addToCart(3)">From 3pm to 4pm</md-button>
-        <md-button class="md-raised md-warn md-hue-2" ng-click="addToCart(5)">From 5pm to 6pm</md-button>
-        <md-button class="md-raised md-warn md-hue-2" ng-click="addToCart(6)">From 6pm to 7pm</md-button>
+        <md-button class="md-raised md-warn md-hue-2" ng-click="addToCart(2, fk)">From 2pm to 3pm</md-button>
+        <md-button class="md-raised md-warn md-hue-2" ng-click="addToCart(3, fk)">From 3pm to 4pm</md-button>
+        <md-button class="md-raised md-warn md-hue-2" ng-click="addToCart(5, fk)">From 5pm to 6pm</md-button>
+        <md-button class="md-raised md-warn md-hue-2" ng-click="addToCart(6, fk)">From 6pm to 7pm</md-button>
     </div>
 </md-card>

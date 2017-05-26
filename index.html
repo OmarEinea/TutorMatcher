@@ -12,20 +12,22 @@
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Satisfy">
         <!-- Our Style Sheets -->
         <link rel="stylesheet" href="styles.css">
+        <!-- Set Website Title -->
+        <title>UOSTutors</title>
     </head>
     <body ng-app="UOSTutors" layout="column" ng-cloak style="position: relative">
         <md-toolbar ng-controller="toolbar" class="md-hue-2" layout="row">
             <div class="md-toolbar-tools" flex-offset="20" flex="60">
-                <a href="home.html" id="logo">UOS Tutors</a>
-                <a href="courses.html" style="margin-right: 16px">Courses</a>
-                <a href="tutors.html" style="margin-right: 24px">Tutors</a>
+                <a href="#/" id="logo">UOS Tutors</a>
+                <a href="#/Courses" style="margin-right: 16px">Courses</a>
+                <a href="#/Tutors" style="margin-right: 24px">Tutors</a>
                 <md-autocomplete md-items="subject in subjects" md-item-text="subject" placeholder="Search a Subject" flex>
                     <md-item-template>{{ subject }}</md-item-template>
                 </md-autocomplete>
                 <span flex></span>
                 <md-button class="md-button" ng-click="showDialog($event)">Login / Sign Up</md-button>
             </div>
-            <div layout="row" layout-align="end end" style="position: fixed; top: 64; width: 100%" ng-if="$ls.items.length > 0">
+            <div layout="row" layout-align="end end" style="position: fixed; top: 64; width: 100%" ng-if="itemsInCart()">
                 <md-card flex="20" style="max-width: 19%">
                     <md-card-title>
                         <md-card-title-text>
@@ -34,15 +36,15 @@
                     </md-card-title>
                     <md-car-content>
                         <md-list flex>
-                            <md-list-item class="md-3-line" ng-repeat="item in $ls.items">
-                                <img ng-src="https://images.pexels.com/photos/5775/calculator-scientific.jpg?dl&fit=crop&w=640&h=426" class="md-avatar" 
+                            <md-list-item class="md-3-line" ng-repeat="(key, session) in $ls.items">
+                                <img ng-src="{{ courses[session.course].pic }}" class="md-avatar" 
                                      style="width: 50px; height: 50px"/>
                                 <div class="md-list-item-text" layout="column">
-                                    <h3>Calculus I</h3>
-                                    <h4>Chris Lei</h4>
-                                    <p>From {{ item }}pm to {{ item + 1 }}pm</p>
+                                    <h3>{{ courses[session.course].name }}</h3>
+                                    <h4>{{ tutors[session.tutor].name }}</h4>
+                                    <p>From {{ session.time }}pm to {{ session.time + 1 }}pm</p>
                                     <p class="md-secondary" layout="column">
-                                        <md-button class="md-icon-button" ng-click="$ls.items.splice($ls.items.indexOf(item), 1)">
+                                        <md-button class="md-icon-button" ng-click="deleteSession(key)">
                                             <md-icon md-font-icon="fa fa-times" style="color: black"></md-icon>
                                         </md-button>
                                         20AED

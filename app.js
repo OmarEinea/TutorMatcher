@@ -11,23 +11,21 @@ fb.auth().signInWithEmailAndPassword("eineao@ymail.com", "testing");
 angular.module('UOSTutors', ['ngMaterial', 'ngRoute', 'ngStorage', 'materialCalendar', 'firebase'])
 
 .config(function($mdIconProvider, $locationProvider, $routeProvider, $localStorageProvider){
-    $mdIconProvider.icon("md-tabs-arrow", "UOSTutors/tabs-arrow-icon.svg");
-    $locationProvider.html5Mode(true);
+    $mdIconProvider.icon("md-tabs-arrow", location.pathname + "/tabs-arrow-icon.svg");
+    $locationProvider.hashPrefix('');
     $localStorageProvider.setKeyPrefix('');
     $routeProvider.when("/", {
         templateUrl: 'home.html'
-    }).when("/home.html", {
-        templateUrl: 'home.html'
-    }).when("/courses.html", {
+    }).when("/Courses", {
         templateUrl: 'courses.html',
         controller: 'courses'
-    }).when("/tutors.html", {
+    }).when("/Tutors", {
         templateUrl: 'tutors.html',
         controller: 'tutors'
-    }).when("/tutor.html", {
+    }).when("/Tutor/:id", {
         templateUrl: 'tutor.html',
         controller: 'tutor'
-    }).when("/course.html", {
+    }).when("/Course/:id", {
         templateUrl: 'course.html',
         controller: 'course'
     });
@@ -38,22 +36,22 @@ angular.module('UOSTutors', ['ngMaterial', 'ngRoute', 'ngStorage', 'materialCale
         link: function(scope, element, attrs) {
             element.on('click', function() {
                 scope.$apply(function() {
-                    $location.path(attrs.redirect.toLowerCase() + ".html");
+                    $location.path(attrs.redirect);
                 });
             });
         }
     }
 })
 
-.run(function($location) {
-    if($location.hash()) {
-        $location.path('/' + $location.hash());
-        $location.hash('');
-    } else if($location.path() == "/index.html")
-        $location.path('/');
+.run(function() {
+    if(location.pathname == "/index.html")
+        location.pathname = "/";
 })
 
-.controller('toolbar', function($scope, $mdDialog, $localStorage) {
+.controller('toolbar', function($scope, $mdDialog, $localStorage, $firebaseObject) {
+    $scope.courses = $firebaseObject(fb.database().ref('Courses'));
+    $scope.tutors = $firebaseObject(fb.database().ref('Users'));
+
     $scope.subjects = ['Statistics', 'Accounting', 'Algebra', 'Finance', 'Chemistry',
                        'Calculus', 'Study Skills', 'Writing', 'Biology', 'Computer Science'];
 
@@ -75,23 +73,26 @@ angular.module('UOSTutors', ['ngMaterial', 'ngRoute', 'ngStorage', 'materialCale
         });
     };
     $scope.$ls = $localStorage.$default({
-        items: []
+        items: {}
     });
+    $scope.deleteSession = function(key) {
+        delete $scope.$ls.items[key];
+    };
+    $scope.itemsInCart = function() {
+        return Object.keys($scope.$ls.items).length;
+    };
 })
 
-.controller("tutors", function($scope, $localStorage, $firebaseObject, $location) {
+.controller("tutors", function($scope, $firebaseObject) {
     $scope.tutors = $firebaseObject(fb.database().ref('Users'));
     $scope.lengthOf = function(array) {
         return Object.keys(array).length;
     };
-    $scope.goToTutor = function(key) {
-        $localStorage.key = key;
-        $location.path('tutor.html');
-    };
 })
 
-.controller("tutor", function($scope, $filter, $localStorage, $firebaseObject) {
-    $scope.tutor = $firebaseObject(fb.database().ref('Users/' + $localStorage.key));
+.controller("tutor", function($scope, $filter, $routeParams, $firebaseObject) {
+    $scope.tutor = $firebaseObject(fb.database().ref('Users/' + $routeParams.id));
+    $scope.courses = $firebaseObject(fb.database().ref('Courses'));
     var randColor = function() {
         return ["green-500", "red-400"][Math.floor((Math.random()*2))];
     };
@@ -122,16 +123,12 @@ angular.module('UOSTutors', ['ngMaterial', 'ngRoute', 'ngStorage', 'materialCale
     };
 })
 
-.controller('courses', function($scope, $window, $location, $firebaseObject, $localStorage) {
+.controller('courses', function($scope, $window, $firebaseObject) {
     $scope.subjects = ['Statistics', 'Accounting', 'Algebra', 'Finance', 'Chemistry',
                        'Calculus', 'Study Skills', 'Writing', 'Biology', 'Computer Science'];
     
     $scope.shownCourses = null;
     $scope.allCourses = $firebaseObject(fb.database().ref('Courses'));
-    $scope.goToCourse = function(cname) {
-        $localStorage.cname = cname;
-        $location.path('course.html');
-    };
     $scope.lengthOf = function(array) {
         return Object.keys(array).length;
     };
@@ -145,15 +142,15 @@ angular.module('UOSTutors', ['ngMaterial', 'ngRoute', 'ngStorage', 'materialCale
     };
 })
 
-.controller('course', function($scope, $localStorage, $firebaseObject, $location) {
+.controller('course', function($scope, $localStorage, $firebaseObject, $routeParams) {
+    $scope.course = $firebaseObject(fb.database().ref('Courses/' + $routeParams.id));
     $scope.tutors = $firebaseObject(fb.database().ref('Users'));
     $scope.date = new Date();
-    $scope.course = $firebaseObject(fb.database().ref('Courses/' + $localStorage.cname));
-    $scope.addToCart = function(session) {
-        $localStorage.items.push(session);
-    };
-    $scope.goToTutor = function(key) {
-        $localStorage.key = key;
-        $location.path('tutor.html');
+    $scope.addToCart = function(timeSlot, tutorId) {
+        $localStorage.items[$routeParams.id + tutorId + timeSlot] = {
+            course: $routeParams.id,
+            tutor: tutorId,
+            time: timeSlot
+        };
     };
 });
