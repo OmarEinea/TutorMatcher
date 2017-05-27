@@ -28,6 +28,8 @@ angular.module('UOSTutors', ['ngMaterial', 'ngRoute', 'ngStorage', 'materialCale
     }).when("/Course/:id", {
         templateUrl: 'course.html',
         controller: 'course'
+    }).when("/Purchase", {
+        templateUrl: 'purchase.html'
     });
 })
 
