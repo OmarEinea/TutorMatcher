@@ -6,23 +6,28 @@
    </md-card-title>
 </md-card>
 
-<div layout="row" layout-align="start start">
-   <md-card flex="30" flex-offset="20" layout="row" layout-padding layout-align="start start">
-       <img src="https://images.pexels.com/photos/5775/calculator-scientific.jpg?dl&fit=crop&w=1280&h=853" flex="35">
-       <md-card-title-text layout="column" flex>
-           <span style="margin: 16px 0" class="md-headline" md-colors="::{color: 'grey-800'}">
-               <md-icon md-font-icon="fa fa-book fa-fw" md-colors="::{color: 'grey-800'}"></md-icon>Calculus I
-           </span>
-           <span class="md-subhead" md-colors="::{color: 'grey-600'}">
-               <md-icon md-font-icon="fa fa-users fa-fw"></md-icon>Teachers
-           </span>
-       </md-card-title-text>
-       <md-button class="md-icon-button">
-           <md-icon flex-offset="10" layout-align="end start" md-font-icon="fa fa-times" md-colors="::{color: 'grey-800'}"></md-icon>
-       </md-button>
+<div layout="row" flex="60" flex-offset="20" layout-align="start start">
+   <md-card layout="row" layout-padding layout-align="start start" flex>
+        <md-list flex>
+            <md-list-item class="md-3-line" ng-repeat="(key, session) in $ls.items">
+                <img ng-src="{{ courses[session.course].pic }}" class="md-avatar" 
+                     style="width: 50px; height: 50px"/>
+                <div class="md-list-item-text" layout="column">
+                    <h3>{{ courses[session.course].name }}</h3>
+                    <h4>{{ tutors[session.tutor].name }}</h4>
+                    <p>From {{ session.time }}pm to {{ session.time + 1 }}pm</p>
+                    <p class="md-secondary" layout="column">
+                        <md-button class="md-icon-button" ng-click="deleteSession(key)">
+                            <md-icon md-font-icon="fa fa-times" style="color: black"></md-icon>
+                        </md-button>
+                        20AED
+                    </p>
+                </div>
+            </md-list-item>
+        </md-list>
    </md-card>
 
-   <md-card flex="30" layout-padding>
+   <md-card layout-padding flex>
        <span class="md-headline">Payment method(s):
            <md-button layout-align="end end" class="md-raised md-primary">
                <md-icon md-font-icon="fa fa-plus-circle "></md-icon>
@@ -34,14 +39,7 @@
            <md-button layout-align="end end" class="md-raised md-primary">Edit</md-button>
            <md-button layout-align="end end" class="md-raised md-primary">Delete</md-button>
        </span>
+       <br>
+       <md-button layout-align="end end" class="md-raised md-primary" ng-click="completeOrder()">Complete Order</md-button>
    </md-card>
 </div>
-
-<md-card flex="30" flex-offset="20" layout="row" layout-padding layout-align="start start">
-    <img src="https://images.pexels.com/photos/5775/calculator-scientific.jpg?dl&fit=crop&w=1280&h=853" flex="35">
-    <md-card-title-text layout="column" flex>
-        <span style="margin: 16px 0" class="md-headline" md-colors="::{color: 'grey-800'}">
-            <md-icon md-font-icon="fa fa-book fa-fw" md-colors="::{color: 'grey-800'}"></md-icon>Calculus I
-        </span>
-    </md-card-title-text>
-</md-card>

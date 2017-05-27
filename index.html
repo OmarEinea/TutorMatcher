@@ -27,7 +27,7 @@
                 <span flex></span>
                 <md-button class="md-button" ng-click="showDialog($event)">Login / Sign Up</md-button>
             </div>
-            <div layout="row" layout-align="end end" style="position: fixed; top: 64; width: 100%" ng-if="itemsInCart()">
+            <div layout="row" layout-align="end end" style="position: fixed; top: 64; width: 100%" ng-if="itemsInCart() && $location.path() != '/Purchase'">
                 <md-card flex="20" style="max-width: 19%">
                     <md-card-title>
                         <md-card-title-text>
@@ -54,7 +54,7 @@
                         </md-list>
                     </md-car-content>
                     <md-card-actions layout="row" layout-padding>
-                        <md-button class="md-raised md-primary" layout-padding flex redirect="Purchase">Checkout</md-button>
+                        <md-button class="md-raised md-primary" layout-padding flex redirect="Purchase">Checkout {{ itemsInCart() * 20 }}AED</md-button>
                     </md-card-actions>
                 </md-card>
             </div>

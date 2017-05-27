@@ -29,7 +29,8 @@ angular.module('UOSTutors', ['ngMaterial', 'ngRoute', 'ngStorage', 'materialCale
         templateUrl: 'course.html',
         controller: 'course'
     }).when("/Purchase", {
-        templateUrl: 'purchase.html'
+        templateUrl: 'purchase.html',
+        controller: 'purchase'
     });
 })
 
@@ -50,13 +51,13 @@ angular.module('UOSTutors', ['ngMaterial', 'ngRoute', 'ngStorage', 'materialCale
         location.pathname = "/";
 })
 
-.controller('toolbar', function($scope, $mdDialog, $localStorage, $firebaseObject) {
+.controller('toolbar', function($scope, $mdDialog, $localStorage, $firebaseObject, $location) {
     $scope.courses = $firebaseObject(fb.database().ref('Courses'));
     $scope.tutors = $firebaseObject(fb.database().ref('Users'));
 
     $scope.subjects = ['Statistics', 'Accounting', 'Algebra', 'Finance', 'Chemistry',
                        'Calculus', 'Study Skills', 'Writing', 'Biology', 'Computer Science'];
-
+    $scope.$location = $location;
     $scope.cancel = $mdDialog.cancel;
     $scope.login = function() {
         $mdDialog.hide();
@@ -154,5 +155,20 @@ angular.module('UOSTutors', ['ngMaterial', 'ngRoute', 'ngStorage', 'materialCale
             tutor: tutorId,
             time: timeSlot
         };
+    };
+})
+
+.controller('purchase', function($scope, $localStorage, $firebaseObject, $location, $mdToast) {
+    $scope.courses = $firebaseObject(fb.database().ref('Courses'));
+    $scope.tutors = $firebaseObject(fb.database().ref('Users'));
+    $scope.$ls = $localStorage;
+    $scope.completeOrder = function() {
+        $location.path("/");
+        $mdToast.show(
+            $mdToast.simple()
+                .textContent('Your Order Is Completed!')
+                .hideDelay(3000)
+        );
+        $scope.$ls.items = {};
     };
 });
